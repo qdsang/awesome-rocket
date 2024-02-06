@@ -27,7 +27,7 @@ This section provides an overview of the DIY rocketry hobby, including its chall
 - **OpenRocket** - 一个免费、全功能的模型火箭模拟器，允许设计和模拟火箭。[GitHub](https://github.com/openrocket/openrocket)
 - **RASAero** - 结合了空气动力学分析和飞行模拟的软件包，适用于模型火箭、高功率火箭、业余火箭和探空火箭。[Website](http://www.rasaero.com/)
 - **ThrustCurve** - 一个在线资源，提供火箭发动机和引擎数据，适用于模拟和设计。[Website](https://www.thrustcurve.org/)
-- **** - 模拟火箭发射和轨道的工具，适合对火箭轨道动力学感兴趣的人。[GitHub](https://github.com/aaronraimist/FlightClubClient) https://flightclub.io/
+- **FlightClub** - 模拟火箭发射和轨道的工具，适合对火箭轨道动力学感兴趣的人。[GitHub](https://github.com/aaronraimist/FlightClubClient) https://flightclub.io/
 - **KSP (Kerbal Space Program) Mods** - 虽然KSP本身不是开源的，但其庞大的mod社区提供了许多开源项目，可以让玩家设计和测试自己的火箭。[CurseForge](https://www.curseforge.com/kerbal/ksp-mods)
 - **SpaceCAD** - 火箭设计和模拟软件，帮助用户设计自己的火箭并预测其性能。[Website](https://www.spacecad.com/)
 - **NASA Open Source Software** - NASA提供的一系列开源软件，适用于设计和模拟航天器，也可以应用于DIY火箭项目。[Website](https://software.nasa.gov/)

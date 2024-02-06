@@ -27,7 +27,7 @@ This section provides an overview of the DIY rocketry hobby, including its chall
 - **OpenRocket** - 一个免费、全功能的模型火箭模拟器，允许设计和模拟火箭。[GitHub](https://github.com/openrocket/openrocket)
 - **RASAero** - 结合了空气动力学分析和飞行模拟的软件包，适用于模型火箭、高功率火箭、业余火箭和探空火箭。[Website](http://www.rasaero.com/)
 - **ThrustCurve** - 一个在线资源，提供火箭发动机和引擎数据，适用于模拟和设计。[Website](https://www.thrustcurve.org/)
-- **FlightClub** - 模拟火箭发射和轨道的工具，适合对火箭轨道动力学感兴趣的人。[GitHub](https://github.com/flightclub)
+- **** - 模拟火箭发射和轨道的工具，适合对火箭轨道动力学感兴趣的人。[GitHub](https://github.com/aaronraimist/FlightClubClient) https://flightclub.io/
 - **KSP (Kerbal Space Program) Mods** - 虽然KSP本身不是开源的，但其庞大的mod社区提供了许多开源项目，可以让玩家设计和测试自己的火箭。[CurseForge](https://www.curseforge.com/kerbal/ksp-mods)
 - **SpaceCAD** - 火箭设计和模拟软件，帮助用户设计自己的火箭并预测其性能。[Website](https://www.spacecad.com/)
 - **NASA Open Source Software** - NASA提供的一系列开源软件，适用于设计和模拟航天器，也可以应用于DIY火箭项目。[Website](https://software.nasa.gov/)
@@ -35,10 +35,10 @@ This section provides an overview of the DIY rocketry hobby, including its chall
 
 ### Hardware
 
-- **RocketPi** - 一个用于火箭遥测的树莓派项目。它使用树莓派从火箭飞行过程中的各种传感器收集数据。[GitHub]（https://github.com/RocketPi/RocketPi）
-- **Arduino火箭控制器** - 一个基于Arduino的项目，用于控制模型火箭，具有点火、部署和遥测功能。[GitHub]（https://github.com/arduino-rocket-controller）
-- **Open Source Rocket Avionics** - 为火箭提供开源的航电系统，包括飞行控制、数据记录和遥测。[GitHub](https://github.com/rocketavionics)
-- **Rocketduino** - 一个基于Arduino的开源火箭电子项目，专注于创建可靠的火箭飞行数据记录器。[GitHub](https://github.com/rocketduino)
+- **RocketPi** - 一个用于火箭遥测的树莓派项目。它使用树莓派从火箭飞行过程中的各种传感器收集数据。[GitHub](https://github.com/aitesam961/PI-Pico-Rocket-Flight-Computer)
+- **Arduino火箭控制器** - 一个基于Arduino的项目，用于控制模型火箭，具有点火、部署和遥测功能。[GitHub](https://github.com/Jlo6CTEP/rocket-controller)
+- **Open Source Rocket Avionics** - 为火箭提供开源的航电系统，包括飞行控制、数据记录和遥测。[GitHub](https://github.com/leosalustri/rocketAvionics)
+- **Rocketduino** - 一个基于Arduino的开源火箭电子项目，专注于创建可靠的火箭飞行数据记录器。[GitHub](https://github.com/1n5aN1aC/RocketDuino)
 
 ## Educational Resources
 

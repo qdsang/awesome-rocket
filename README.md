@@ -25,6 +25,10 @@ This section provides an overview of the DIY rocketry hobby, including its chall
 ### Software
 
 - **OpenRocket** - 一个免费、全功能的模型火箭模拟器，允许设计和模拟火箭。[GitHub](https://github.com/openrocket/openrocket)
+- **RocketPy** - 下一代大功率火箭六自由度轨迹仿真。[GitHub](https://github.com/RocketPy-Team/RocketPy)
+- **openMotor** - 供火箭发动机实验人员使用的开源内弹道模拟器。[GitHub](https://github.com/reilleya/openMotor)
+- **SCpp** - 该库实现了特别适合航空航天应用的各种最优控制算法(火箭着陆模型)。[GitHub](https://github.com/EmbersArc/SCpp)
+- **AeroVECTOR** - 模型火箭模拟器面向主动控制系统的设计和调整，无论是TVC、主动鳍控制还是被动稳定火箭上的降落伞部署算法。[GitHub](https://github.com/GuidodiPasquo/AeroVECTOR)
 - **RASAero** - 结合了空气动力学分析和飞行模拟的软件包，适用于模型火箭、高功率火箭、业余火箭和探空火箭。[Website](http://www.rasaero.com/)
 - **ThrustCurve** - 一个在线资源，提供火箭发动机和引擎数据，适用于模拟和设计。[Website](https://www.thrustcurve.org/)
 - **FlightClub** - 模拟火箭发射和轨道的工具，适合对火箭轨道动力学感兴趣的人。[GitHub](https://github.com/aaronraimist/FlightClubClient) https://flightclub.io/
@@ -35,10 +39,14 @@ This section provides an overview of the DIY rocketry hobby, including its chall
 
 ### Hardware
 
+- **Tejas-Rocket-Flight-Computer** - 一种自主推力矢量控制火箭，具有自着陆能力，采用阿波罗时代同等功率的廉价部件。[GitHub](https://github.com/Curious-Nikhil/Tejas-Rocket-Flight-Computer)
+- **SPECTRA** - 一款固体推进剂实验室试验台，旨在测量和分析固体火箭发动机的性能。[GitHub](https://github.com/SPARK-TECH-INDUSTRIES/SPECTRA) [doc](/docs/SPECTRA%20V.1%20REPORT.pdf)
 - **RocketPi** - 一个用于火箭遥测的树莓派项目。它使用树莓派从火箭飞行过程中的各种传感器收集数据。[GitHub](https://github.com/aitesam961/PI-Pico-Rocket-Flight-Computer)
 - **Arduino火箭控制器** - 一个基于Arduino的项目，用于控制模型火箭，具有点火、部署和遥测功能。[GitHub](https://github.com/Jlo6CTEP/rocket-controller)
 - **Open Source Rocket Avionics** - 为火箭提供开源的航电系统，包括飞行控制、数据记录和遥测。[GitHub](https://github.com/leosalustri/rocketAvionics)
 - **Rocketduino** - 一个基于Arduino的开源火箭电子项目，专注于创建可靠的火箭飞行数据记录器。[GitHub](https://github.com/1n5aN1aC/RocketDuino)
+- **Rocketduino** - 一个基于Arduino的开源火箭电子项目，专注于创建可靠的火箭飞行数据记录器。[GitHub](https://github.com/1n5aN1aC/RocketDuino)
+
 
 ## Educational Resources
 

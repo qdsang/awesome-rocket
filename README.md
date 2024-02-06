@@ -40,6 +40,7 @@ This section provides an overview of the DIY rocketry hobby, including its chall
 
 ### Hardware
 
+- **uHoubolt** - 小型轻型 乙醇/N2O 液体火箭，已成功飞行。[GitHub](https://github.com/SpaceTeam/uHoubolt)
 - **Tejas-Rocket-Flight-Computer** - 一种自主推力矢量控制火箭，具有自着陆能力，采用阿波罗时代同等功率的廉价部件。[GitHub](https://github.com/Curious-Nikhil/Tejas-Rocket-Flight-Computer) [GitHub](https://github.com/Curious-Nikhil/Thrust-Vector-Control-Rocket)
 - **Hephaestus** - 推力矢量控制火箭。[GitHub](https://github.com/hephaestus-space/Hephaestus)
 - **OSREngines** - 开源火箭发动机。[GitHub](https://github.com/gNSortino/OSREngines)

@@ -39,7 +39,7 @@ This section provides an overview of the DIY rocketry hobby, including its chall
 
 ### Hardware
 
-- **Tejas-Rocket-Flight-Computer** - 一种自主推力矢量控制火箭，具有自着陆能力，采用阿波罗时代同等功率的廉价部件。[GitHub](https://github.com/Curious-Nikhil/Tejas-Rocket-Flight-Computer)
+- **Tejas-Rocket-Flight-Computer** - 一种自主推力矢量控制火箭，具有自着陆能力，采用阿波罗时代同等功率的廉价部件。[GitHub](https://github.com/Curious-Nikhil/Tejas-Rocket-Flight-Computer) [GitHub](https://github.com/Curious-Nikhil/Thrust-Vector-Control-Rocket)
 - **SPECTRA** - 一款固体推进剂实验室试验台，旨在测量和分析固体火箭发动机的性能。[GitHub](https://github.com/SPARK-TECH-INDUSTRIES/SPECTRA) [doc](/docs/SPECTRA%20V.1%20REPORT.pdf)
 - **RocketPi** - 一个用于火箭遥测的树莓派项目。它使用树莓派从火箭飞行过程中的各种传感器收集数据。[GitHub](https://github.com/aitesam961/PI-Pico-Rocket-Flight-Computer)
 - **Arduino火箭控制器** - 一个基于Arduino的项目，用于控制模型火箭，具有点火、部署和遥测功能。[GitHub](https://github.com/Jlo6CTEP/rocket-controller)

@@ -46,7 +46,6 @@ This section provides an overview of the DIY rocketry hobby, including its chall
 - **Arduino火箭控制器** - 一个基于Arduino的项目，用于控制模型火箭，具有点火、部署和遥测功能。[GitHub](https://github.com/Jlo6CTEP/rocket-controller)
 - **Open Source Rocket Avionics** - 为火箭提供开源的航电系统，包括飞行控制、数据记录和遥测。[GitHub](https://github.com/leosalustri/rocketAvionics)
 - **Rocketduino** - 一个基于Arduino的开源火箭电子项目，专注于创建可靠的火箭飞行数据记录器。[GitHub](https://github.com/1n5aN1aC/RocketDuino)
-- **Rocketduino** - 一个基于Arduino的开源火箭电子项目，专注于创建可靠的火箭飞行数据记录器。[GitHub](https://github.com/1n5aN1aC/RocketDuino)
 
 
 ## Educational Resources

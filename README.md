@@ -35,9 +35,6 @@ This section provides an overview of the DIY rocketry hobby, including its chall
 
 ### Hardware
 
-- **RocketPi** - A Raspberry Pi project for rocket telemetry. It uses the Pi to collect data from various sensors during the rocket's flight. [GitHub](https://github.com/RocketPi/RocketPi)
-- **Arduino Rocket Controller** - An Arduino-based project for controlling model rockets, with features for ignition, deployment, and telemetry. [GitHub](https://github.com/arduino-rocket-controller)
-
 - **RocketPi** - 一个用于火箭遥测的树莓派项目。它使用树莓派从火箭飞行过程中的各种传感器收集数据。[GitHub]（https://github.com/RocketPi/RocketPi）
 - **Arduino火箭控制器** - 一个基于Arduino的项目，用于控制模型火箭，具有点火、部署和遥测功能。[GitHub]（https://github.com/arduino-rocket-controller）
 - **Open Source Rocket Avionics** - 为火箭提供开源的航电系统，包括飞行控制、数据记录和遥测。[GitHub](https://github.com/rocketavionics)

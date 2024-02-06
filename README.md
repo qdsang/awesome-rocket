@@ -24,16 +24,14 @@ This section provides an overview of the DIY rocketry hobby, including its chall
 
 ### Software
 
-- **OpenRocket** - A free, fully featured model rocket simulator that allows you to design and simulate your rockets before actually building and flying them. [GitHub](https://github.com/openrocket/openrocket)
-- **RASAero** - A combined aerodynamic analysis and flight simulation software package for model rockets and high power rockets, amateur rockets, and sounding rockets. [Website](http://www.rasaero.com/)
-- **ThrustCurve** - An online resource for rocket motor and engine data, useful for simulation and design purposes. [Website](https://www.thrustcurve.org/)
-
-- **OpenRocket** - 一个免费的，功能齐全的模型火箭模拟器，允许您在实际建造和飞行之前设计和模拟您的火箭。[GitHub]（https://github.com/openrocket/openrocket）
-- **RASAero** - 用于模型火箭和高功率火箭、业余火箭和探空火箭的组合气动分析和飞行模拟软件包。[网站]（http://www.rasaero.com/）
-- **ThrustCurve** - 用于模拟和设计目的的火箭发动机和发动机数据的在线资源。[网站]（https://www.thrustcurve.org/）
-- **FlightClub** - 一个模拟火箭发射和轨道的工具，非常适合那些对火箭轨道动力学感兴趣的人。[GitHub](https://github.com/flightclub)
+- **OpenRocket** - 一个免费、全功能的模型火箭模拟器，允许设计和模拟火箭。[GitHub](https://github.com/openrocket/openrocket)
+- **RASAero** - 结合了空气动力学分析和飞行模拟的软件包，适用于模型火箭、高功率火箭、业余火箭和探空火箭。[Website](http://www.rasaero.com/)
+- **ThrustCurve** - 一个在线资源，提供火箭发动机和引擎数据，适用于模拟和设计。[Website](https://www.thrustcurve.org/)
+- **FlightClub** - 模拟火箭发射和轨道的工具，适合对火箭轨道动力学感兴趣的人。[GitHub](https://github.com/flightclub)
 - **KSP (Kerbal Space Program) Mods** - 虽然KSP本身不是开源的，但其庞大的mod社区提供了许多开源项目，可以让玩家设计和测试自己的火箭。[CurseForge](https://www.curseforge.com/kerbal/ksp-mods)
 - **SpaceCAD** - 火箭设计和模拟软件，帮助用户设计自己的火箭并预测其性能。[Website](https://www.spacecad.com/)
+- **NASA Open Source Software** - NASA提供的一系列开源软件，适用于设计和模拟航天器，也可以应用于DIY火箭项目。[Website](https://software.nasa.gov/)
+
 
 ### Hardware
 
@@ -47,18 +45,23 @@ This section provides an overview of the DIY rocketry hobby, including its chall
 
 ## Educational Resources
 
-- **NASA’s Rocketry 101** - An introduction to rocket science, covering the basics of how rockets work, including Newton's Third Law. [Website](https://www.nasa.gov/audience/forstudents/5-8/features/nasa-knows/what-is-rocket-science-58.html)
-- **The Rocketry Forum** - A vast repository of threads and discussions on various aspects of rocketry, suitable for beginners and advanced enthusiasts. [Website](https://www.rocketryforum.com/)
+- **NASA’s Rocketry 101** - 介绍火箭科学的基础，包括火箭是如何工作的。[Website](https://www.nasa.gov/audience/forstudents/5-8/features/nasa-knows/what-is-rocket-science-58.html)
+- **The Rocketry Forum** - 一个庞大的讨论区，涵盖了火箭制作的各个方面，适合初学者和高级爱好者。[Website](https://www.rocketryforum.com/)
+- **Rocket Propulsion Elements** by George P. Sutton - 火箭推进技术的经典教材。
+- **Introduction to Rocket Science and Engineering** by Travis S. Taylor - 为初学者提供火箭科学和工程的全面介绍。
 
 ## Materials and Components
 
-- **Apogee Components** - Offers a wide range of parts, kits, and materials for rocketry projects. [Website](https://www.apogeerockets.com/)
-- **Public Missiles Ltd** - Supplies materials, components, and kits for more advanced rocketry projects. [Website](https://publicmissiles.com/)
+- **Apogee Components** - 提供各种零件、套件和材料。[Website](https://www.apogeerockets.com/)
+- **Public Missiles Ltd** - 提供更高级火箭项目的材料、组件和套件。[Website](https://publicmissiles.com/)
+- **Cesaroni Technology** - 提供广泛的火箭发动机数据库。[Website](https://www.pro38.com/products/prod_motorData.php)
 
 ## Communities and Forums
 
-- **r/rocketry** - Reddit’s rocketry community, a place for discussion, project sharing, and advice. [Reddit](https://www.reddit.com/r/rocketry/)
-- **The Rocketry Forum** - As mentioned above, a comprehensive forum for all levels of rocketry enthusiasts. [Website](https://www.rocketryforum.com/)
+- **r/rocketry** - Reddit上的火箭社区，用于讨论、分享项目和提供建议。[Reddit](https://www.reddit.com/r/rocketry/)
+- **The Rocketry Forum** - 一个全面的火箭爱好者论坛。[Website](https://www.rocketryforum.com/)
+- **Rocketry Planet** - 提供论坛、新闻、资源和事件列表的在线社区。[Website](http://www.rocketryplanet.com/)
+- **High Power Rocketry** - Reddit上的一个社区，专注于高功率火箭技术和项目分享。[Reddit](https://www.reddit.com/r/highpowerrocketry/)
 
 ## Safety and Legal
 

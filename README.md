@@ -1,6 +1,8 @@
 # Awesome DIY Rocket Projects
 
-A curated list of awesome DIY rocket projects, resources, tools, and communities. Inspired by the incredible work of hobbyists and professionals alike, this list aims to fuel the passion of those interested in building their own rockets, from simple water rockets to more advanced propulsion systems.
+A curated list of awesome DIY rocket projects, resources, tools, and communities. this list aims to fuel the passion of those interested in building their own rockets, from simple water rockets to more advanced propulsion systems.  
+一个精选的DIY火箭项目、资源、工具和社区的列表。这个列表旨在激发那些对自己制作火箭感兴趣的人的热情，从简单的水火箭到更高级的推进系统。  
+
 
 ## Contents
 
@@ -16,9 +18,26 @@ A curated list of awesome DIY rocket projects, resources, tools, and communities
 - [Videos](#videos)
 - [Contributing](#contributing)
 
-## Introduction
+## 介绍 Introduction
 
-This section provides an overview of the DIY rocketry hobby, including its challenges, rewards, and the scope of projects covered by this awesome list.
+
+
+## 典型固体燃料
+
+| 燃料类型 | 风险   | 性能       | 工艺难度 | 一致性 | 原料                                                                                                                                                       | 常用制作工艺                            | 原料成本       |
+|-----------|--------|------------|------------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------|----------------|
+| RNX（KNER） | 低     | 低（比冲约100s） | 低         | 高      | 硝酸钾、环氧树脂、固化剂、三氧化二铁                                                                                                                      | 混合压铸、混合浇筑                    | 约30元/kg    |
+| KNSB       | 中     | 低（比冲约125s） | 低         | 中      | 硝酸钾、山梨糖醇                                                                                                                                          | 热熔浇筑                               | 约20元/kg    |
+| APCP       | 中     | 高（文献比冲200s-240s） | 中        | 高      | 高氯酸铵、端羟基聚丁二烯、固化剂、增塑剂、铝粉等                                                                                                          | 常压捏合真空浇筑、真空捏合常压浇筑、真空捏合真空浇筑 | 180-500元/kg |
+| 黑火药（BP） | 高     | 低（爱好者实测比冲50s左右） | 高       | 低      | 硝酸钾、炭、硫                                                                                                                                              | -                                        | -              |
+| RAP        | 高     | 中（文献比冲200s） | 中        | 低      | 高氯酸铵、环氧树脂                                                                                                                                          | -                                        | 150-400元/kg |
+| KNSU、KNDX | 高     | 低（文献比冲130s左右） | 高       | 低      | 硝酸钾、蔗糖（或葡萄糖）                                                                                                                                   | -                                        | -              |
+| A24        | 低     | 中（文献比冲200s左右） | 高       | 高      | 硝酸铵、氯丁橡胶、硫、铝                                                                                                                                    | 压铸                                      | 约35元/kg    |
+| KPBM      | 高     | 中        | 高        | 低     | 高氯酸钾、沥青                                                                                                                                             | -                                        | -              |
+| 748#       | 低     | 高（理论比冲212s）    | 低        | 高      | 高氯酸铵、E51环氧树脂、748稀释剂、593固化剂、氧化铜（或氧化铁）                                                                                  | -                                        | -              |
+| 669#       | 低     | 高（理论比冲215s）    | 低        | 高      | 高氯酸铵、E51环氧树脂、669稀释剂、593固化剂、环氧甲酯、氧化铅                                                                                  | -                                        | -              |
+
+注：情况可能会根据制造技术、环境以及其他因素有所不同。
 
 ## Open Source Projects
 
@@ -30,12 +49,15 @@ This section provides an overview of the DIY rocketry hobby, including its chall
 - **SCpp** - 该库实现了特别适合航空航天应用的各种最优控制算法(火箭着陆模型)。[GitHub](https://github.com/EmbersArc/SCpp)
 - **AeroVECTOR** - 模型火箭模拟器面向主动控制系统的设计和调整，无论是TVC、主动鳍控制还是被动稳定火箭上的降落伞部署算法。[GitHub](https://github.com/GuidodiPasquo/AeroVECTOR)
 - **RX1** - 核心要素是一个强大的消息传递系统，使日志记录、遥测和开发变得更加容易。[GitHub](https://github.com/15jgme/RX1)
+
 - **RASAero** - 结合了空气动力学分析和飞行模拟的软件包，适用于模型火箭、高功率火箭、业余火箭和探空火箭。[Website](http://www.rasaero.com/)
 - **ThrustCurve** - 一个在线资源，提供火箭发动机和引擎数据，适用于模拟和设计。[Website](https://www.thrustcurve.org/)
 - **FlightClub** - 模拟火箭发射和轨道的工具，适合对火箭轨道动力学感兴趣的人。[GitHub](https://github.com/aaronraimist/FlightClubClient) https://flightclub.io/
 - **KSP (Kerbal Space Program) Mods** - 虽然KSP本身不是开源的，但其庞大的mod社区提供了许多开源项目，可以让玩家设计和测试自己的火箭。[CurseForge](https://www.curseforge.com/kerbal/ksp-mods)
 - **SpaceCAD** - 火箭设计和模拟软件，帮助用户设计自己的火箭并预测其性能。[Website](https://www.spacecad.com/)
 - **NASA Open Source Software** - NASA提供的一系列开源软件，适用于设计和模拟航天器，也可以应用于DIY火箭项目。[Website](https://software.nasa.gov/)
+- 用于测量火箭发动机的推力。https://github.com/Serra-Rocketry/Rocket-Motor-Load-Cell-Tester
+- **MORGAN** - 模型火箭制导和控制(PIO + ESP32)。[Github](https://github.com/intensite/morgan-firmware)
 
 
 ### Hardware
@@ -72,9 +94,11 @@ This section provides an overview of the DIY rocketry hobby, including its chall
 - **The Rocketry Forum** - 一个全面的火箭爱好者论坛。[Website](https://www.rocketryforum.com/)
 - **Rocketry Planet** - 提供论坛、新闻、资源和事件列表的在线社区。[Website](http://www.rocketryplanet.com/)
 - **High Power Rocketry** - Reddit上的一个社区，专注于高功率火箭技术和项目分享。[Reddit](https://www.reddit.com/r/highpowerrocketry/)
-- https://github.com/msadowski/awesome-weekly-robotics
 - https://github.com/topics/rocketry
 - https://github.com/topics/model-rockets
+- https://github.com/longhorn-rocketry
+- https://github.com/Serra-Rocketry
+- https://github.com/msadowski/awesome-weekly-robotics
 - https://github.com/topics/diy
 
 

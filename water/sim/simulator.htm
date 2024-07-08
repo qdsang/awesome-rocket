@@ -1,0 +1,775 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<META NAME="keywords" CONTENT="water rockets, bottle rockets, simulator">
+	<META NAME="description" CONTENT="Water Rocket Simulation">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Bootstrap core CSS -->
+	<link href="ui/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Custom styles for this template -->
+	<link href="ui/css/navbar-static-top.css" rel="stylesheet">
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+	<link href="ui/css/bootstrap-slider.css" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" href="ui/css/common.css">
+	<link rel="stylesheet" type="text/css" href="ui/css/footer.css">
+	<link rel="stylesheet" type="text/css" href="ui/css/tables.css">
+
+	<!-- Add jQuery library -->
+	<script type="text/javascript" src="ui/lib/jquery-1.11.2.min.js"></script>
+	<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script-->
+
+	<link rel="stylesheet" href="ui/css/font-awesome.min.css">
+	<script src="ui/lib/plotly-latest.min.js"></script>
+</head>
+
+<body>
+
+	<div class="container" id="topContainer">
+
+		<header>
+			<div class="acheader">
+				<div class="logo1">Water Rocket Simulator 水火箭模拟器</div>
+			</div>
+		</header>
+
+
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="btn-group headerButton" data-toggle="buttons">
+					<label id="StandardBtn" class="btn btn-default btn_red">
+						<input type="radio" id="q156" name="quality[25]" checked="checked" value="Standard" /> 标准
+					</label>
+					<label id="AdvancedBtn" class="btn btn-default active btn_red">
+						<input type="radio" id="q157" name="quality[25]" value="Advanced" /> 高级
+					</label>
+				</div>
+				<button type="button" class="btn btn-default" id="resetBtn" style="float:right; margin:15px;">Reset to
+					Default</button>
+				<button type="button" class="btn btn-default" id="charlieBtn"
+					style="float:right; margin:15px;">Charlie</button>
+				<!--button type="button" class="btn btn-default" id="sandyBtn" style="float:right; margin:15px;">Sandy</button-->
+				<button type="button" class="btn btn-default" id="shadowBtn" style="float:right; margin:15px;">Dark
+					Shadow</button>
+				<button type="button" class="btn btn-default" id="kl2lBtn" style="float:right; margin:15px;">可口可乐2L</button>
+			</div>
+		</div>
+
+
+	</div>
+
+	<div class="container">
+
+		<div class="panel-group" id="accordion">
+
+			<div class="panel panel-default" id="panel1">
+				<div class="panel-heading">
+					<h4 class="panel-title">火箭</h4>
+				</div>
+
+				<div id="collapseOne" class="panel-collapse collapse in">
+					<div class="panel-body">
+
+
+
+						<div class="row">
+							<div class="col-sm-8">
+
+								<div class="form-inline">
+									<div class="form-group">
+										<label class="sliderLabel">火箭外径（mm）</label>
+										<input type="text" class="form-control paramField" id="rocketDiameter"
+											style="width:80px;">
+									</div>
+									<div class="checkbox">
+										<!-- displayed in mm -->
+										<input id="rocketDiameterSlider" data-slider-id='ex1Slider' type="text"
+											data-slider-min="0.02" data-slider-max="0.28" data-slider-step="0.001"
+											data-slider-tooltip="hide" />
+									</div>
+								</div>
+
+								<div class="form-inline">
+									<div class="form-group">
+										<label class="sliderLabel">喷嘴出口直径 (mm)</label>
+										<input type="text" class="form-control paramField" id="nozzleDiameter"
+											style="width:80px;">
+									</div>
+									<div class="checkbox">
+										<input id="nozzleDiameterSlider" data-slider-id='ex10Slider' type="text"
+											data-slider-min="0.002" data-slider-max="0.120" data-slider-step="0.0005"
+											data-slider-tooltip="hide" />
+									</div>
+								</div>
+
+								<div class="form-inline">
+									<div class="form-group">
+										<label class="sliderLabel">总容量 (L)</label>
+										<input type="text" class="form-control paramField" id="volume"
+											style="width:80px;">
+									</div>
+									<div class="checkbox">
+										<input id="volumeSlider" data-slider-id='ex1Slider' type="text"
+											data-slider-min="0.1" data-slider-max="30" data-slider-step="0.01"
+											data-slider-tooltip="hide" />
+									</div>
+								</div>
+
+								<div class="form-inline">
+									<div class="form-group">
+										<label class="sliderLabel">水量 (L)</label>
+										<input type="text" class="form-control paramField" id="waterAmount"
+											style="width:80px;">
+									</div>
+									<div class="checkbox">
+										<input id="waterSlider" data-slider-id='ex1Slider' type="text"
+											data-slider-min="0.1" data-slider-max="30" data-slider-step="0.01"
+											data-slider-tooltip="hide" />
+										<button type="button" class="btn btn-default" id="waterSliderBtn"
+												style="margin:15px;">1/3</button>
+									</div>
+								</div>
+
+								<div class="form-inline">
+									<div class="form-group">
+										<label class="sliderLabel">空重 (g)</label>
+										<input type="text" class="form-control paramField" id="mass"
+											style="width:80px;">
+									</div>
+									<div class="checkbox">
+										<input id="massSlider" data-slider-id='ex1Slider' type="text"
+											data-slider-min="20" data-slider-max="5800" data-slider-step="10"
+											data-slider-tooltip="hide" />
+									</div>
+								</div>
+
+								<div class="form-inline">
+									<div class="form-group">
+										<label class="sliderLabel">阻力系数</label>
+										<input type="text" class="form-control paramField" id="drag"
+											style="width:80px;">
+									</div>
+									<div class="checkbox">
+										<input id="dragSlider" data-slider-id='ex1Slider' type="text"
+											data-slider-min="0.01" data-slider-max="3.3" data-slider-step="0.01"
+											data-slider-tooltip="hide" />
+									</div>
+								</div>
+
+								<!-- ADVANCED SECTION -->
+								<div id="advancedRocket">
+
+									<div class="form-inline">
+										<div class="form-group">
+											<label class="sliderLabel">Nozzle Adjuster A</label>
+											<input type="text" class="form-control paramField" id="noz0"
+												style="width:80px;">
+										</div>
+										<div class="checkbox">
+											<input id="noz0Slider" data-slider-id='ex1Slider' type="text"
+												data-slider-min="0" data-slider-max="50" data-slider-step="1"
+												data-slider-tooltip="hide" />
+										</div>
+									</div>
+
+									<div class="form-inline">
+										<div class="form-group">
+											<label class="sliderLabel">Nozzle Adjuster B</label>
+											<input type="text" class="form-control paramField" id="noz1"
+												style="width:80px;">
+										</div>
+										<div class="checkbox">
+											<input id="noz1Slider" data-slider-id='ex1Slider' type="text"
+												data-slider-min="0" data-slider-max="50" data-slider-step="1"
+												data-slider-tooltip="hide" />
+										</div>
+									</div>
+
+									<div class="form-inline">
+										<div class="form-group">
+											<label class="sliderLabel">Nozzle Adjuster C</label>
+											<input type="text" class="form-control paramField" id="noz2"
+												style="width:80px;">
+										</div>
+										<div class="checkbox">
+											<input id="noz2Slider" data-slider-id='ex1Slider' type="text"
+												data-slider-min="0" data-slider-max="50" data-slider-step="1"
+												data-slider-tooltip="hide" />
+										</div>
+									</div>
+
+
+									<div class="form-inline">
+										<div class="form-group">
+											<label class="sliderLabel">Water Thrust Efficiency</label>
+											<input type="text" class="form-control paramField" id="watThrustEff"
+												style="width:80px;">
+										</div>
+										<div class="checkbox">
+											<input id="watThrustEffSlider" data-slider-id='ex1Slider' type="text"
+												data-slider-min="0.5" data-slider-max="1.0" data-slider-step="0.01"
+												data-slider-tooltip="hide" />
+										</div>
+									</div>
+
+									<div class="form-inline">
+										<div class="form-group">
+											<label class="sliderLabel">Gas Thrust Efficiency</label>
+											<input type="text" class="form-control paramField" id="gasThrustEff"
+												style="width:80px;">
+										</div>
+										<div class="checkbox">
+											<input id="gasThrustEffSlider" data-slider-id='ex1Slider' type="text"
+												data-slider-min="0.5" data-slider-max="1.0" data-slider-step="0.01"
+												data-slider-tooltip="hide" />
+										</div>
+									</div>
+
+
+								</div>
+
+
+							</div>
+							<div class="col-sm-4">
+
+								<div style="text-align:center;">
+									<canvas id="testCanvas" width="200" height="300"></canvas>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="panel panel-default" id="panel1">
+				<div class="panel-heading">
+					<h4 class="panel-title">启动器</h4>
+				</div>
+
+
+				<div id="collapseOne" class="panel-collapse collapse in">
+					<div class="panel-body">
+
+						<div class="form-inline">
+							<div class="form-group">
+								<label class="sliderLabel">压力 (bar)</label>
+								<input type="text" class="form-control paramField" id="pressure" style="width:80px;">
+							</div>
+							<div class="checkbox">
+								<input id="pressureSlider" data-slider-id='ex1Slider' type="text" data-slider-min="1"
+									data-slider-max="200" data-slider-step="0.1" data-slider-tooltip="hide" />
+							</div>
+							<div class="form-group">
+								<input type="text" class="form-control paramField" id="pressurePSI" style="width:80px;">
+							</div>
+
+						</div>
+
+						<div class="form-inline">
+							<div class="form-group">
+								<label class="sliderLabel">发射管直径 (mm)</label>
+								<input type="text" class="form-control paramField" id="ltDiameter" style="width:80px;">
+							</div>
+							<div class="checkbox">
+								<input id="ltDiameterSlider" data-slider-id='ex1Slider' type="text" data-slider-min="0"
+									data-slider-max="120" data-slider-step="1" data-slider-tooltip="hide" />
+							</div>
+						</div>
+
+						<div class="form-inline">
+							<div class="form-group">
+								<label class="sliderLabel">发射管长度 (mm)</label>
+								<input type="text" class="form-control paramField" id="ltLength" style="width:80px;">
+							</div>
+							<div class="checkbox">
+								<input id="ltLengthSlider" data-slider-id='ex1Slider' type="text" data-slider-min="0"
+									data-slider-max="2500" data-slider-step="10" data-slider-tooltip="hide" />
+							</div>
+						</div>
+
+
+						<div id="advancedLauncher">
+							<div class="form-inline">
+								<div class="form-group">
+									<label class="sliderLabel">Launcher Volume (L)</label>
+									<input type="text" class="form-control paramField" id="launcherVolume"
+										style="width:80px;">
+								</div>
+								<div class="checkbox">
+									<input id="launcherVolumeSlider" data-slider-id='launcherVolumeSlider1' type="text"
+										data-slider-min="0" data-slider-max="30" data-slider-step="0.1"
+										data-slider-tooltip="hide" />
+								</div>
+							</div>
+
+
+							<div class="form-inline">
+								<div class="form-group">
+									<label class="sliderLabel">Gas Source</label>
+								</div>
+
+
+								<select class="form-control" id="gasSource" onchange="gasSourceChanged(this);">
+									<option value="Air">Air</option>
+									<option value="CO2">CO2</option>
+									<option value="Helium">Helium</option>
+									<option value="Nitrogen">Nitrogen</option>
+								</select>
+
+
+							</div>
+
+							<div class="form-inline">
+								<div class="form-group">
+									<label class="sliderLabel">Liquid Density (g/cm^3)</label>
+									<input type="text" class="form-control paramField" id="liquidDensity"
+										style="width:80px;">
+								</div>
+								<div class="checkbox">
+									<input id="liquidDensitySlider" data-slider-id='ex1Slider' type="text"
+										data-slider-min="0.5" data-slider-max="14.0" data-slider-step="0.001"
+										data-slider-tooltip="hide" />
+								</div>
+							</div>
+
+
+
+						</div>
+
+
+					</div>
+
+
+				</div>
+			</div>
+
+
+			<div class="panel panel-default" id="advancedEnvironment">
+				<div class="panel-heading">
+					<h4 class="panel-title">Environment</h4>
+				</div>
+
+				<div id="collapseOne" class="panel-collapse collapse in">
+					<div class="panel-body">
+
+
+						<div class="form-inline">
+							<div class="form-group">
+								<label class="sliderLabel">Ambient Temperature (C)</label>
+								<input type="text" class="form-control paramField" id="ambientTemp"
+									style="width:80px; ">
+							</div>
+							<div class="checkbox">
+								<input id="ambientTempSlider" data-slider-id='ex1Slider' type="text"
+									data-slider-min="-5" data-slider-max="55" data-slider-step="1"
+									data-slider-tooltip="hide" />
+							</div>
+						</div>
+
+						<div class="form-inline">
+							<div class="form-group">
+								<label class="sliderLabel">Ambient Pressure (Pa)</label>
+								<input type="text" class="form-control paramField" id="ambientPressure"
+									style="width:80px;">
+							</div>
+							<div class="checkbox">
+								<input id="ambientPressureSlider" data-slider-id='ex1Slider' type="text"
+									data-slider-min="33700" data-slider-max="107900" data-slider-step="1"
+									data-slider-tooltip="hide" />
+							</div>
+						</div>
+
+
+						<div class="form-inline">
+							<div class="form-group">
+								<label class="sliderLabel">Relative Humidity in Rocket %</label>
+								<input type="text" class="form-control paramField" id="relHumidity" style="width:80px;">
+							</div>
+							<div class="checkbox">
+								<input id="relHumiditySlider" data-slider-id='ex1Slider' type="text" data-slider-min="0"
+									data-slider-max="200" data-slider-step="1" data-slider-tooltip="hide" />
+							</div>
+						</div>
+
+						<div class="form-inline">
+							<div class="form-group">
+								<label class="sliderLabel">Gravity (m/s2)</label>
+								<input type="text" class="form-control paramField" id="gravity" style="width:80px;">
+							</div>
+							<div class="checkbox">
+								<input id="gravitySlider" data-slider-id='ex1Slider' type="text" data-slider-min="9.700"
+									data-slider-max="9.900" data-slider-step="0.001" data-slider-tooltip="hide" />
+							</div>
+						</div>
+
+
+					</div>
+				</div>
+
+			</div>
+
+
+
+		</div>
+
+		<div style="text-align: center;">
+			<button type="button" class="btn btn-primary" id="runSimBtn">运行模拟</button>
+		</div>
+
+
+		<div class="panel" id="errorMsg" style="color:#FF0033; text-align: center; ">
+
+		</div>
+
+
+		<div class="panel panel-default" id="panel1">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					模拟结果
+				</h4>
+			</div>
+
+
+			<div id="collapseOne" class="panel-collapse collapse in">
+				<div class="panel-body">
+					<div>
+
+						<div class="row">
+							<div class="col-sm-6">
+
+								<table class="resultTable">
+									<tr>
+										<td colspan="2" class="resultSubHeading">Burnout</td>
+									</tr>
+									<tr>
+										<td class="resultLabel">Time</td>
+										<td class="resultValue" id="burnoutTime">-</td>
+									</tr>
+									<tr>
+										<td class="resultLabel">Altitude</td>
+										<td class="resultValue" id="burnoutAltitude">-</td>
+									</tr>
+									<tr>
+										<td class="resultLabel">Velocity</td>
+										<td class="resultValue" id="burnoutVelocity">-</td>
+									</tr>
+									<tr>
+										<td class="resultLabel">Acceleration</td>
+										<td class="resultValue" id="burnoutAcceleration">-</td>
+									</tr>
+								</table>
+
+							</div>
+
+							<div class="col-sm-6">
+
+
+								<table class="resultTable">
+									<tr>
+										<td colspan="2" class="resultSubHeading">Thrust</td>
+									</tr>
+									<tr>
+										<td class="resultLabel">Total Impulse</td>
+										<td class="resultValue" id="totalImpulse">-</td>
+									</tr>
+									<tr>
+										<td class="resultLabel">Burn Time</td>
+										<td class="resultValue" id="burnTime">-</td>
+									</tr>
+									<tr>
+										<td class="resultLabel">Peak Thrust</td>
+										<td class="resultValue" id="peakThrust">-</td>
+									</tr>
+									<tr>
+										<td class="resultLabel">Average Thrust</td>
+										<td class="resultValue" id="averageThrust">-</td>
+									</tr>
+									<tr>
+										<td class="resultLabel">Motor Equivalent</td>
+										<td class="resultValue" id="motorEquivalent">-</td>
+									</tr>
+								</table>
+
+
+
+
+							</div>
+
+						</div>
+
+						<div class="row">
+
+							<div class="col-sm-6">
+
+
+								<table class="resultTable">
+									<tr>
+										<td colspan="2" class="resultSubHeading">Apogee</td>
+									</tr>
+									<tr>
+										<td class="resultLabel">Time</td>
+										<td class="resultValue" id="apogeeTime">-</td>
+									</tr>
+									<tr>
+										<td class="resultLabel">Altitude</td>
+										<td class="resultValue" id="apogeeAltitude">-</td>
+									</tr>
+								</table>
+
+
+
+							</div>
+
+							<div class="col-sm-6">
+
+								<table class="resultTable">
+									<tr>
+										<td colspan="2" class="resultSubHeading">Crashdown</td>
+									</tr>
+									<tr>
+										<td class="resultLabel">Time</td>
+										<td class="resultValue" id="crashdownTime">-</td>
+									</tr>
+									<tr>
+										<td class="resultLabel">Velocity</td>
+										<td class="resultValue" id="crashdownVelocity">-</td>
+									</tr>
+								</table>
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<div class="panel panel-default" id="graphs">
+			<div class="panel-heading">
+				<h4 class="panel-title"> Graphs </h4>
+			</div>
+
+
+			<div id="collapseOne" class="panel-collapse collapse in">
+				<div class="panel-body">
+					<div style="text-align:center">
+
+						<div id="tester2" style="width:800px;height:320px;"></div>
+						<div id="tester" style="width:800px;height:320px;"></div>
+						<div id="tester3" style="width:800px;height:320px;"></div>
+						<div id="tester4" style="width:800px;height:320px;"></div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<div class="panel panel-default" id="rawDataPanel">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					<a data-toggle="collapse" data-target="#collapseT" href="#collapseT" class="collapsed"> Raw Data
+					</a> </h4>
+
+			</div>
+			<div id="collapseT" class="panel-collapse collapse">
+				<div class="panel-body">
+
+					<div id="rawData">
+						<!-- Raw Data Ends up being written here -->
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+
+		<div class="panel panel-default" id="panel2">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					<a data-toggle="collapse" data-target="#collapseTwo" href="#collapseTwo" class="collapsed">
+						Usage Notes
+					</a>
+				</h4>
+
+			</div>
+			<div id="collapseTwo" class="panel-collapse collapse">
+				<div class="panel-body">
+					<ol>
+						<li>TO DO</li>
+					</ol>
+
+				</div>
+			</div>
+		</div>
+		<div class="panel panel-default" id="panel3">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					<a data-toggle="collapse" data-target="#collapseThree" href="#collapseThree" class="collapsed">
+						Frequently Asked Questions (FAQ):
+					</a>
+				</h4>
+
+			</div>
+			<div id="collapseThree" class="panel-collapse collapse">
+				<div class="panel-body">
+					<p>The following text is from Dean Wheeler's original Simulator. Most is still applicable for this Javascript Port</p>
+					<ol>
+						<li><i>Is this simulator reliable?</i> The simulator engine is based on the
+							set of <a href="http://www.et.byu.edu/~wheeler/benchtop/thrust.php">thrust</a>
+							and <a href="http://www.et.byu.edu/~wheeler/benchtop/flight.php">flight</a>
+							equations described in this website. The equations involve relatively few
+							simplifying assumptions and I believe this simulator can more reliably
+							handle some exotic rocket designs than other simulators I have seen (even
+							commercial water-rocket software). However, like any model--even a good
+							model--the output depends on the input. Probably the most uncertain
+							parameter that makes a huge difference in performance is the coefficient of
+							drag. The simulator provides a conservative estimate you can use, based on
+							the shape of your rocket and assuming relatively straight and stable flight,
+							but this should not be taken as gospel truth. Fins, nosecones, and other
+							external ornamentation, as well as orientation of the rocket to external
+							airflow, all have an effect. I recommend a &quot;fitting&quot; experiment, in which
+							you launch a rocket and assess its apogee height and then adjust the drag
+							coefficient so that the simulator and experiment agree. Then the simulator
+							can be used to explore changes in other variables. As a final note, I would
+							add that the simulator solves different equations for different phases of
+							flight (launch tube, water thrust, and gas thrust). It must figure out when
+							to transition between these equations and sometimes, for certain
+							unpredictable combinations of parameters, it gets stuck in an iteration
+							loop. If the simulator seems to stall or freeze, try a slightly different
+							set of parameters (even just by changing one parameter by a small amount)
+							and hopefully it should work. Did I tell you that this is beta software?</li>
+						<li><i>What is a &quot;launch tube&quot;?</i> It is a smooth hollow tube that is
+							mounted to the launcher and inserted into the rocket nozzle. Upon launch,
+							the rocket slides up the tube. If there is a reasonably close fit between
+							the outer surface of the tube and the inside of the rocket nozzle, then the
+							tube/rocket combination acts like a piston, providing very efficient
+							acceleration to the rocket while it is traveling up the tube. Another
+							benefit of launch tubes is that they guide the initial motion of the rocket
+							so that is flies straight. Wobbly flight of the rocket will increase air
+							drag and make the trajectory less preditable. Some launchers use launch
+							tubes (like the home-built Clark cable design); some do not (like the Pitsco
+							AquaPort launcher used by Science Olympiad). The simulator can predict the
+							principal effect of the launch tube (a boost in total thrust), but makes no
+							attempt to predict flight stability issues.</li>
+						<li><i>What is &quot;launcher volume&quot;?</i> It is the volume of pressurized gas
+							stored inside the launcher apparatus (excluding the launch tube) that is
+							accessible to the rocket. By &quot;accessible&quot; I mean there is no valve or
+							significant constriction between this volume and the volume of gas inside
+							the rocket itself. Why is this quantity needed by the simulator? Because
+							this gas volume works to maintain pressure inside the rocket while the
+							rocket is traveling up the launch tube. So if a launcher does not use a
+							launch tube then there is no effect. For launch-tube-type launchers,
+							creating a large launcher volume provides a modest improvement in
+							performance, depending on the length of the launch tube. But it does waste
+							pressurized gas, so if you are building a launcher that will be used to
+							launch many rockets in succession it is probably a bad idea to give it a
+							large volume.</li>
+						<li><i>What is a &quot;T-nozzle&quot;?</i> In the simulator if you make the launch
+							tube diameter greater than the rocket nozzle diameter, a warning statement
+							is given under the Results tab indicating a T-nozzle is in use. A T-nozzle
+							is a small tube-shaped device that fits inside the rocket. It is shaped to
+							sit in the throat area of the nozzle (without being ejected) and to force
+							the outlet flow of water/gas through a smaller diameter, allowing for a
+							longer duration thrust and more dramatic launch. The T-nozzle initially sits
+							loosely on top of the launch tube and gets seated in place after the rocket
+							flies off of the launch tube. With the T-nozzle in use, the rocket nozzle
+							diameter used in the simulator should be the inside diameter of the
+							T-nozzle. Do a web search on &quot;T-nozzle&quot; if you want more information.</li>
+						<li><i>What is &quot;Nozzle Adjuster&quot; A, B, and C?</i> These three are variables
+							I made up that control the shape of the bottle near its tail-end or nozzle.
+							If you change these variables in the applet you will see the cartoon on the
+							right change as well. Make the cartoon look like the bottle shape you are
+							using for your rocket. Because the shape of the tail changes the external
+							aerodynamics of the rocket, these adjustments will change the appropriate
+							value of drag coefficient. The default values of A, B, and C are set to
+							reproduce the typical shape of 2-liter soda bottles in the United States.</li>
+						<li><i>What is the optimal amount of water to add to a rocket?</i> That's
+							what simulators like this are used for--change the value and see the
+							predicted effect on performance. The fact that there is an optimal amount of
+							water can be explained by the fact that there is a trade-off between
+							competing effects. The water in the rocket is a reaction mass. It allows for
+							efficient conversion of pressure energy (stored in the gas) into kinetic
+							energy (motion) of the rocket. On the other hand, any water you add to the
+							rocket takes away gas volume, which is where the energy is stored. So you
+							are trading off the amount of energy stored in the rocket with the
+							efficiency with which that energy can be used to propel the rocket upward.
+							There is an optimal point where thrust and apogee height are maximized.
+							Understanding and dealing with trade-offs like this is the essence of
+							engineering.</li>
+						<li><i>What do you mean by &quot;total volume&quot; of the rocket?</i> Total volume is
+							the total internal volume used to store water and pressurized gas, i.e. the
+							size of the bottle. Note that under pressure every bottle elastically
+							stretches a bit, increasing its volume above the nominal stated value. This
+							can be observed by doing a pressure test on a bottle in which it is filled
+							100% with water and then pressurized gas is added. I have found that 2-liter
+							soda bottles, under 100 psi (7 bar) pressure have a total volume closer to
+							2.1 liters, which is the default value on the simulator.</li>
+						<li><i>What do you mean by &quot;empty mass&quot; of the rocket?</i> Empty mass is the
+							mass of the rocket vehicle (bottle+fins+nosecone+payload) at the conclusion
+							of the thrust phase, when all the liquid and pressurized gas have been
+							expelled.</li>
+						<li><i>What coefficient of drag should I use?</i> See my response to the
+							first question above.</li>
+						<li><i>What are water and gas &quot;thrust efficiency&quot;?</i> This is the fraction
+							of available energy that is NOT lost to friction when trying to expel the
+							water and gas, respectively, from the rocket. As long as the inside of your
+							rocket/bottle is smoothly tapering and does not have additional plumbing, I
+							recommend you leave these two quantities at their default value (0.97).</li>
+					</ol>
+					&nbsp;
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Post Info -->
+	</div>
+
+
+	<div class="container" id="bottomContainer">
+		<footer>
+			<nav>
+				<ul id="demo-nav">
+					<li><a href="#">Back to Top</a></li>
+					<li><a href="#">Contact</a></li>
+					<li><a href="#">Home</a></li>
+					<!--li class="current"><a href="footer-only.html">Footer Only</a></li>
+	      <li><a href="footer-adapt.html">Footer Variation</a></li>
+	      <li><a href="footer-anchor.html">Footer Anchor</a></li-->
+				</ul>
+			</nav>
+
+			<div>
+				<p class="credit">Copyright &#169; 2002-2016 Dean Wheeler - Ported to JavaScript by George Katz - V0.4
+					2017-2020</p>
+			</div>
+		</footer>
+
+		<!-- Bootstrap core JavaScript
+    ================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script-->
+		<!-- conflicts with fancy box-->
+		<script src="ui/js/bootstrap.min.js"></script>
+		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+		<!--script src="../../assets/js/ie10-viewport-bug-workaround.js"></script-->
+		<script src="ui/js/bootstrap-slider.min.js"></script>
+		<script src="ui/compressed.js"></script>
+		<script src="ui/ui.js"></script>
+
+	</div>
+</body>
+
+</html>

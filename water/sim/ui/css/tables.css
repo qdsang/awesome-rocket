@@ -1,0 +1,58 @@
+td
+{
+	font-family:Arial; 
+	font-size: 13px;
+}
+
+td.heading
+{
+	background-color: #4484C4;
+}
+
+
+table.flightdetails_outer
+{
+    border-spacing:0;
+	border-collapse: collapse; 
+	border:1px solid black;
+}
+
+table.flightdetails_outer td {
+	border-width: 1px;
+	padding: 4px;
+	border-style: solid;
+	border-color: #000000;
+}
+
+
+table.flightdetails_inner
+{
+	border-width: 0px;
+	padding: 2px;
+	border-style: solid;
+}
+
+table.flightdetails_inner td {
+	border-width: 0px;
+	padding: 2px;
+	border-style: solid;
+	border-color: #666666;
+}
+
+/* The following rules are used for setting the Launch Day summary at the top of the launch page (Date, conditions, location etc.) */
+
+table.daysummary td
+{
+	vertical-align: text-top;
+	padding: 2px;
+}
+
+td.summaryKey {
+	width: 90px;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+td.summaryValue {
+	font-size: 14px;
+}

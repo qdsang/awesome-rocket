@@ -22,6 +22,15 @@ This section provides an overview of the DIY rocketry hobby, including its chall
 
 ## Open Source Projects
 
+### Simulation
+
+- 火箭回收模拟器 Python RL基于PPO https://github.com/Barath19/Landing-a-SpaceX-Falcon-heavy-using-Proximal-Policy-Optimization-
+- 火箭回收模拟器 Python Deep-Q https://github.com/aswinvisva/spacex_rl_simulation
+- 火箭发射和回收模拟器 Go语言 https://github.com/RenatoBrittoAraujo/RocketLander
+- 太空任务模拟器 https://github.com/LunCoSim/lunco-sim
+- 小玩具 浏览器体验降落 https://bburns.github.io/Starship/ https://github.com/bburns/Starship
+
+
 ### Software
 
 - **OpenRocket** - 一个免费、全功能的模型火箭模拟器，允许设计和模拟火箭。[GitHub](https://github.com/openrocket/openrocket)
@@ -30,13 +39,16 @@ This section provides an overview of the DIY rocketry hobby, including its chall
 - **SCpp** - 该库实现了特别适合航空航天应用的各种最优控制算法(火箭着陆模型)。[GitHub](https://github.com/EmbersArc/SCpp)
 - **AeroVECTOR** - 模型火箭模拟器面向主动控制系统的设计和调整，无论是TVC、主动鳍控制还是被动稳定火箭上的降落伞部署算法。[GitHub](https://github.com/GuidodiPasquo/AeroVECTOR)
 - **RX1** - 核心要素是一个强大的消息传递系统，使日志记录、遥测和开发变得更加容易。[GitHub](https://github.com/15jgme/RX1)
+
 - **RASAero** - 结合了空气动力学分析和飞行模拟的软件包，适用于模型火箭、高功率火箭、业余火箭和探空火箭。[Website](http://www.rasaero.com/)
 - **ThrustCurve** - 一个在线资源，提供火箭发动机和引擎数据，适用于模拟和设计。[Website](https://www.thrustcurve.org/)
 - **FlightClub** - 模拟火箭发射和轨道的工具，适合对火箭轨道动力学感兴趣的人。[GitHub](https://github.com/aaronraimist/FlightClubClient) https://flightclub.io/
 - **KSP (Kerbal Space Program) Mods** - 虽然KSP本身不是开源的，但其庞大的mod社区提供了许多开源项目，可以让玩家设计和测试自己的火箭。[CurseForge](https://www.curseforge.com/kerbal/ksp-mods)
 - **SpaceCAD** - 火箭设计和模拟软件，帮助用户设计自己的火箭并预测其性能。[Website](https://www.spacecad.com/)
 - **NASA Open Source Software** - NASA提供的一系列开源软件，适用于设计和模拟航天器，也可以应用于DIY火箭项目。[Website](https://software.nasa.gov/)
-
+- 用于测量火箭发动机的推力。https://github.com/Serra-Rocketry/Rocket-Motor-Load-Cell-Tester
+- **MORGAN** - 模型火箭制导和控制(PIO + ESP32)。[Github](https://github.com/intensite/morgan-firmware)
+- **pid-rocket** - 火箭推力控制系统 Web PID 控制器仿真 [Github](https://github.com/srflp/pid-rocket)
 
 ### Hardware
 
@@ -47,7 +59,6 @@ This section provides an overview of the DIY rocketry hobby, including its chall
 - **SPECTRA** - 一款固体推进剂实验室试验台，旨在测量和分析固体火箭发动机的性能。[GitHub](https://github.com/SPARK-TECH-INDUSTRIES/SPECTRA) [doc](/docs/SPECTRA%20V.1%20REPORT.pdf)
 - **RocketNavigator** - 使用 RPI 来捕获模型火箭的数据，并传输实时 GPS 坐标，防丢失。[GitHub](https://github.com/J-MaFf/RocketNavigator)
 - **RocketPi** - 一个用于火箭遥测的树莓派项目。它使用树莓派从火箭飞行过程中的各种传感器收集数据。[GitHub](https://github.com/aitesam961/PI-Pico-Rocket-Flight-Computer)
-- **Arduino火箭控制器** - 一个基于Arduino的项目，用于控制模型火箭，具有点火、部署和遥测功能。[GitHub](https://github.com/Jlo6CTEP/rocket-controller)
 - **Open Source Rocket Avionics** - 为火箭提供开源的航电系统，包括飞行控制、数据记录和遥测。[GitHub](https://github.com/leosalustri/rocketAvionics)
 - **Rocketduino** - 一个基于Arduino的开源火箭电子项目，专注于创建可靠的火箭飞行数据记录器。[GitHub](https://github.com/1n5aN1aC/RocketDuino)
 - **rocketry** - 火箭的东西（业余火箭）。主要基于Arduino。[GitHub](https://github.com/wwakabobik/rocketry)
@@ -72,10 +83,14 @@ This section provides an overview of the DIY rocketry hobby, including its chall
 - **The Rocketry Forum** - 一个全面的火箭爱好者论坛。[Website](https://www.rocketryforum.com/)
 - **Rocketry Planet** - 提供论坛、新闻、资源和事件列表的在线社区。[Website](http://www.rocketryplanet.com/)
 - **High Power Rocketry** - Reddit上的一个社区，专注于高功率火箭技术和项目分享。[Reddit](https://www.reddit.com/r/highpowerrocketry/)
-- https://github.com/msadowski/awesome-weekly-robotics
 - https://github.com/topics/rocketry
 - https://github.com/topics/model-rockets
+- https://github.com/longhorn-rocketry
+- https://github.com/Serra-Rocketry
+- https://github.com/msadowski/awesome-weekly-robotics
 - https://github.com/topics/diy
+- https://www.kechuang.org/f/89?cat=309
+- http://www.aircommandrockets.com/
 
 
 ## Safety and Legal

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>扩张比计算锥形喷管</title>
+</head>
+<body>
+  <h2>扩张比计算锥形喷管</h2>
+
+  <form id="nozzleForm">
+    <label for="Cc">入口直径 (mm): </label>
+    <input type="number" id="Cc" step="any" required><br><br>
+
+    <label for="h">喉部直径 (mm): </label>
+    <input type="number" id="h" step="any" required><br><br>
+
+    <label for="Ce">扩张比: </label>
+    <input type="number" id="Ce" step="any" required><br><br>
+
+    <label for="CTc">收敛角度: </label>
+    <input type="number" id="CTc" step="any" required><br><br>
+
+    <label for="CTe">扩张角度: </label>
+    <input type="number" id="CTe" step="any" required><br><br>
+
+    <button type="button" onclick="calculateNozzle()">计算</button>
+  </form>
+
+  <div id="results" style="display: none;">
+    <h3>计算结果:</h3>
+    <p id="Lcp">收敛段长度: <span id="LcpResult"></span> mm</p>
+    <p id="Lep">扩张段长度: <span id="LepResult"></span> mm</p>
+  </div>
+    
+  <p>本程序由铼铱工业编写。</p>
+  <p>使用有任何问题反馈邮箱：<a href="mailto:lseqy2024@outlook.com">lseqy2024@outlook.com</a></p>
+
+
+  <script>
+    function calculateNozzle() {
+      var Cc = parseFloat(document.getElementById('Cc').value);
+      var h = parseFloat(document.getElementById('h').value);
+      var Ce = parseFloat(document.getElementById('Ce').value);
+      var CTc = parseFloat(document.getElementById('CTc').value);
+      var CTe = parseFloat(document.getElementById('CTe').value);
+
+      var Ae = Ce * Math.pow((h/2), 2) * Math.PI;
+      var de1 = (4 * Ae) / Math.PI;
+      var de2 = Math.sqrt(de1);
+      var Lep1 = (de2 - h) / 2;
+      var Lcp1 = (Cc - h) / 2;
+      var Lep2 = Lep1 / Math.tan(Math.radians(CTe));
+      var Lcp2 = Lcp1 / Math.tan(Math.radians(CTc));
+
+      document.getElementById('LcpResult').textContent = Lcp2.toFixed(2); // Display Lcp2 with 2 decimal places
+      document.getElementById('LepResult').textContent = Lep2.toFixed(2); // Display Lep2 with 2 decimal places
+
+      document.getElementById('results').style.display = 'block'; // Show the results div
+    }
+
+    // Function to convert degrees to radians
+    Math.radians = function(degrees) {
+      return degrees * Math.PI / 180;
+    };
+  </script>
+</body>
+</html>

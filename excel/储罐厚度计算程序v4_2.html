@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>储罐厚度计算器</title>
+  <style>
+    .input-label {
+      display: inline-block;
+      width: 150px;
+    }
+
+    .result-label {
+      font-weight: bold;
+    }
+  </style>
+  <script>
+    function calculateThickness() {
+      var kl_1 = parseFloat(document.getElementById("kl_1").value);
+      var qf_1 = parseFloat(document.getElementById("qf_1").value);
+      var d_1 = parseFloat(document.getElementById("d_1").value);
+      var p_1 = parseFloat(document.getElementById("p_1").value);
+
+      var kl_2 = kl_1 / 2.6;
+      var qf_2 = qf_1 / 1.5;
+      var a_1 = kl_1;
+
+      if (kl_2 > qf_2) {
+        a_1 = qf_2;
+      }
+
+      var b_1 = (p_1 * d_1) / (2 * a_1);
+      document.getElementById("result").innerHTML = "厚度: " + b_1 + "mm";
+      document.getElementById("disclaimer").innerHTML = "本程序由铼铱工业编写<br>使用有任何问题反馈邮箱lseqy2024@outlook.com";
+    }
+  </script>
+</head>
+<body>
+  <h1>储罐厚度计算器</h1>
+  <div>
+    <label class="input-label" for="kl_1">抗拉强度MPa:</label>
+    <input type="number" id="kl_1">
+  </div>
+  <div>
+    <label class="input-label" for="qf_1">屈服强度MPa:</label>
+    <input type="number" id="qf_1">
+  </div>
+  <div>
+    <label class="input-label" for="d_1">直径mm:</label>
+    <input type="number" id="d_1">
+  </div>
+  <div>
+    <label class="input-label" for="p_1">压力MPa:</label>
+    <input type="number" id="p_1">
+  </div>
+  <br>
+  <button onclick="calculateThickness()">计算</button>
+  <br><br>
+  <label id="result" class="result-label"></label>
+  <br><br>
+  <label id="disclaimer"></label>
+</body>
+</html>

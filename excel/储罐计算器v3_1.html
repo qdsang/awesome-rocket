@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>储罐计算器</title>
+  <script>
+    function calculate() {
+      var yhj = parseFloat(document.getElementById("yhj").value);
+      var yhjr = parseFloat(document.getElementById("yhjr").value);
+      var rl = parseFloat(document.getElementById("rl").value);
+      var rlr = parseFloat(document.getElementById("rlr").value);
+      var tim = parseFloat(document.getElementById("tim").value);
+      var hy = parseFloat(document.getElementById("hy").value);
+      var hr = parseFloat(document.getElementById("hr").value);
+      
+      var yhjm = yhj * tim;
+      var rlm = rl * tim;
+      var yhjv = yhjm / yhjr;
+      var rlv = rlm / rlr;
+      var hy2 = hy * hy * Math.PI;
+      var hr2 = hr * hr * Math.PI;
+      var yhjv2 = yhjv / hy2;
+      var rlv2 = rlv / hr2;
+      
+      document.getElementById("result_yhjv").innerHTML = yhjv2.toFixed(2) + " cm";
+      document.getElementById("result_rlv").innerHTML = rlv2.toFixed(2) + " cm";
+      document.getElementById("result_yhjm").innerHTML = yhjm.toFixed(2) + " g";
+      document.getElementById("result_rlm").innerHTML = rlm.toFixed(2) + " g";
+    }
+  </script>
+</head>
+<body>
+  <h1>储罐计算器</h1>
+  <form>
+    <label for="yhj">氧化剂质量流量(g/s):</label>
+    <input type="number" id="yhj" step="0.01"><br>
+
+    <label for="yhjr">氧化剂密度(g/cm³):</label>
+    <input type="number" id="yhjr" step="0.01"><br>
+
+    <label for="rl">燃料质量流量(g/s):</label>
+    <input type="number" id="rl" step="0.01"><br>
+
+    <label for="rlr">燃料密度(g/cm³):</label>
+    <input type="number" id="rlr" step="0.01"><br>
+
+    <label for="tim">工作时间(s):</label>
+    <input type="number" id="tim" step="0.01"><br>
+
+    <label for="hy">氧化剂罐半径(cm):</label>
+    <input type="number" id="hy" step="0.01"><br>
+
+    <label for="hr">燃料罐半径(cm):</label>
+    <input type="number" id="hr" step="0.01"><br>
+
+    <button type="button" onclick="calculate()">计算</button>
+  </form>
+  
+  <h2>计算结果：</h2>
+  <p>氧化剂罐长度: <span id="result_yhjv"></span></p>
+  <p>燃料罐长度: <span id="result_rlv"></span></p>
+  <p>氧化剂质量: <span id="result_yhjm"></span></p>
+  <p>燃料质量: <span id="result_rlm"></span></p>
+  <p>本程序由铼铱工业编写</p>
+  <p>使用有任何问题反馈邮箱lseqy2024@outlook.com</p>
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>通用气体喷嘴计算</title>
+</head>
+<body>
+    <h2>通用气体喷嘴计算</h2>
+    <form id="gasFlowForm">
+        <label for="inputPressure">入口压力 MPa:</label>
+        <input type="number" id="inputPressure" name="inputPressure" step="0.01" required><br><br>
+
+        <label for="outputPressure">出口压力 MPa:</label>
+        <input type="number" id="outputPressure" name="outputPressure" step="0.01" required><br><br>
+
+        <label for="massFlowRate">质量流量 kg/s:</label>
+        <input type="number" id="massFlowRate" name="massFlowRate" step="0.01" required><br><br>
+
+        <label for="frictionCoefficient">流阻系数:</label>
+        <input type="number" id="frictionCoefficient" name="frictionCoefficient" step="0.01" required><br><br>
+
+        <label for="numberOfHoles">个数:</label>
+        <input type="number" id="numberOfHoles" name="numberOfHoles" step="1" required><br><br>
+
+        <label for="variationIndex">多变指数:</label>
+        <input type="number" id="variationIndex" name="variationIndex" step="0.01" required><br><br>
+
+        <label for="molecularWeight">分子量:</label>
+        <input type="number" id="molecularWeight" name="molecularWeight" step="0.01" required><br><br>
+
+        <label for="temperature">温度 K:</label>
+        <input type="number" id="temperature" name="temperature" step="0.01" required><br><br>
+
+        <button type="button" onclick="calculate()">计算</button>
+    </form>
+
+    <div id="results">
+        <!-- Results will be displayed here -->
+    </div>
+
+    <script>
+        function calculate() {
+            var Pin_1 = parseFloat(document.getElementById('inputPressure').value);
+            var Pc_1 = parseFloat(document.getElementById('outputPressure').value);
+            var m_1 = parseFloat(document.getElementById('massFlowRate').value);
+            var mu_1 = parseFloat(document.getElementById('frictionCoefficient').value);
+            var nf_1 = parseFloat(document.getElementById('numberOfHoles').value);
+            var K_1 = parseFloat(document.getElementById('variationIndex').value);
+            var M_1 = parseFloat(document.getElementById('molecularWeight').value);
+            var T_1 = parseFloat(document.getElementById('temperature').value);
+            var M_2 = M_1 / 1000;
+            var R_2 = 8.3138 / M_2;
+            var B_1 = (101000 * M_1) / (8.314 * 273.15); // Ideal gas density calculation
+            var B_2 = B_1 / 1000;
+            var mh_1 = m_1 / nf_1;
+            var Rin_1 = Pin_1 / 0.101;
+            var Rin_2 = Math.pow(Rin_1, 1 / K_1);
+            var Rin_3 = Rin_2 * B_2;
+            var O_1 = (2 * K_1) / (K_1 - 1);
+            var O_2 = (K_1 - 1) / K_1;
+            var O_3 = Pc_1 / Pin_1;
+            var O_4 = Math.pow(O_3, O_2);
+            var O_7 = 1 - O_4;
+            var O_5 = O_1 * T_1 * R_2 * O_7;
+            var O_6 = Math.sqrt(O_5);
+            var An_1 = mh_1 / (O_6 * Rin_3 * mu_1);
+            var do_1 = (4 * An_1) / Math.PI;
+            var do_2 = Math.sqrt(do_1);
+
+            var resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = "<p>出口速度: " + O_6.toFixed(2) + " m/s</p>" +
+                                   "<p>单个流量: " + mh_1.toFixed(2) + " kg/s</p>" +
+                                   "<p>单个面积: " + (An_1 * 1000000).toFixed(2) + " mm<sup>2</sup></p>" +
+                                   "<p>单个直径: " + (do_2 * 1000).toFixed(2) + " mm</p>" +
+                                   "<p>气体密度: " + Rin_3.toFixed(2) + " kg/m<sup>3</sup></p>" +
+                                   "<p>气体理想密度: " + B_1.toFixed(2) + " kg/m<sup>3</sup></p>"+
+                                   "<p>本程序由铼铱工业编写</p>" +
+                                   "<p>使用有任何问题反馈邮箱lseqy2024@outlook.com</p>";
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>压力计算锥形喷管</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  form {
+    margin-bottom: 20px;
+  }
+  label {
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h2>压力计算锥形喷管</h2>
+
+    <form id="nozzleForm">
+      <div>
+        <label for="Cc">入口直径 (mm): </label>
+        <input type="number" id="Cc" step="any" required>
+      </div>
+      <div>
+        <label for="h">喉部直径 (mm): </label>
+        <input type="number" id="h" step="any" required>
+      </div>
+      <div>
+        <label for="pc">室压 (MPa): </label>
+        <input type="number" id="pc" step="any" required>
+      </div>
+      <div>
+        <label for="pe">出口压力 (MPa): </label>
+        <input type="number" id="pe" step="any" required>
+      </div>
+      <div>
+        <label for="r">比热比 (γ): </label>
+        <input type="number" id="r" step="any" required>
+      </div>
+      <div>
+        <label for="CTc">收敛角度: </label>
+        <input type="number" id="CTc" step="any" required>
+      </div>
+      <div>
+        <label for="CTe">扩张角度: </label>
+        <input type="number" id="CTe" step="any" required>
+      </div>
+      <button type="button" onclick="calculateNozzle()">计算</button>
+    </form>
+
+    <div id="results" style="display: none;">
+      <h3>计算结果:</h3>
+      <p id="LcpResult"></p>
+      <p id="LepResult"></p>
+      <p id="CeResult"></p>
+    </div>
+
+    <p>本程序由铼铱工业编写。</p>
+    <p>使用有任何问题反馈邮箱：<a href="mailto:lseqy2024@outlook.com">lseqy2024@outlook.com</a></p>
+  </div>
+
+  <script>
+    function calculateNozzle() {
+      var Cc = parseFloat(document.getElementById('Cc').value);
+      var h = parseFloat(document.getElementById('h').value);
+      var pc = parseFloat(document.getElementById('pc').value);
+      var pe = parseFloat(document.getElementById('pe').value);
+      var r = parseFloat(document.getElementById('r').value);
+      var CTc = parseFloat(document.getElementById('CTc').value);
+      var CTe = parseFloat(document.getElementById('CTe').value);
+
+      // Convert pressures from MPa to Pa
+      pc *= 1000000;
+      pe *= 1000000;
+
+      var z1 = Math.pow((pe / pc), (1 / r));
+      var z2 = (2 * r) / (r - 1);
+      var z3 = Math.pow((pe / pc), ((r - 1) * r));
+      var z4 = (1 - z3) * z2;
+      var z5 = Math.sqrt(z4) * z1;
+      var z6 = Math.sqrt(r);
+      var z7 = (r + 1) / (2 * (r - 1));
+      var z8 = Math.pow((2 / (1 + r)), z7) * z6;
+
+      var Ce = z8 / z5;
+      var Ae = Ce * Math.pow((h / 2), 2) * Math.PI;
+      var de1 = (4 * Ae) / Math.PI;
+      var de2 = Math.sqrt(de1);
+      var Lep1 = (de2 - h) / 2;
+      var Lcp1 = (Cc - h) / 2;
+      var Lep2 = Lep1 / Math.tan(Math.radians(CTe));
+      var Lcp2 = Lcp1 / Math.tan(Math.radians(CTc));
+
+      document.getElementById('LcpResult').textContent = "收敛段长度: " + Lcp2.toFixed(2) + " mm";
+      document.getElementById('LepResult').textContent = "扩张段长度: " + Lep2.toFixed(2) + " mm";
+      document.getElementById('CeResult').textContent = "扩张比: " + Ce.toFixed(4);
+
+      document.getElementById('results').style.display = 'block';
+    }
+
+    // Function to convert degrees to radians
+    Math.radians = function(degrees) {
+      return degrees * Math.PI / 180;
+    };
+  </script>
+</body>
+</html>
+

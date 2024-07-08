@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>火箭参数计算器</title>
+</head>
+<body>
+    <h2>火箭参数计算器</h2>
+    <form id="rocketForm">
+        <label for="F_1">设计推力（kg）:</label>
+        <input type="number" id="F_1" name="F_1"><br><br>
+        
+        <label for="Pc_1">设计燃烧室压力（MPa）:</label>
+        <input type="number" id="Pc_1" name="Pc_1"><br><br>
+        
+        <label for="OF_1">氧燃比：</label>
+        <input type="number" id="OF_1" name="OF_1"><br><br>
+        
+        <label for="Isp_1">比冲（s）:</label>
+        <input type="number" id="Isp_1" name="Isp_1"><br><br>
+        
+        <label for="C_1">特征速度（m/s）:</label>
+        <input type="number" id="C_1" name="C_1"><br><br>
+        
+        <label for="L_1">特征长度（m）:</label>
+        <input type="number" id="L_1" name="L_1"><br><br>
+        
+        <label for="Cc_1">收缩比：</label>
+        <input type="number" id="Cc_1" name="Cc_1"><br><br>
+        
+        <label for="Ce_1">扩张比：</label>
+        <input type="number" id="Ce_1" name="Ce_1"><br><br>
+        
+        <label for="CTc_1">收敛角度（度）：</label>
+        <input type="number" id="CTc_1" name="CTc_1"><br><br>
+        
+        <label for="CTe_1">扩张角度（度）：</label>
+        <input type="number" id="CTe_1" name="CTe_1"><br><br>
+        
+        <label for="Nc_1">燃烧室效率：</label>
+        <input type="number" id="Nc_1" name="Nc_1"><br><br>
+        
+        <label for="Nn_1">喷管效率：</label>
+        <input type="number" id="Nn_1" name="Nn_1"><br><br>
+        
+        <button type="button" onclick="calculate()">计算</button>
+    </form>
+
+    <div id="results"></div>
+
+    <script>
+        function calculate() {
+            var F_1 = parseFloat(document.getElementById('F_1').value);
+            var Pc_1 = parseFloat(document.getElementById('Pc_1').value);
+            var OF_1 = parseFloat(document.getElementById('OF_1').value);
+            var Isp_1 = parseFloat(document.getElementById('Isp_1').value);
+            var C_1 = parseFloat(document.getElementById('C_1').value);
+            var L_1 = parseFloat(document.getElementById('L_1').value);
+            var Cc_1 = parseFloat(document.getElementById('Cc_1').value);
+            var Ce_1 = parseFloat(document.getElementById('Ce_1').value);
+            var CTc_1 = parseFloat(document.getElementById('CTc_1').value);
+            var CTe_1 = parseFloat(document.getElementById('CTe_1').value);
+            var Nc_1 = parseFloat(document.getElementById('Nc_1').value);
+            var Nn_1 = parseFloat(document.getElementById('Nn_1').value);
+            
+            var Isps = Isp_1 * Nc_1 * Nn_1;
+            var Mc_1 = F_1 / Isps;
+            var Mfc_1 = Mc_1 / (OF_1 + 1);
+            var Moc_1 = Mc_1 - Mfc_1;
+            var At_1 = (C_1 * Mc_1) / (Pc_1 * 1000000);
+            var Vr_1 = At_1 * L_1;
+            var Ac_1 = Cc_1 * At_1;
+            var Ae_1 = Ce_1 * At_1;
+            var dt_1 = (4 * At_1) / Math.PI;
+            var dt_2 = Math.sqrt(dt_1);
+            var dc_1 = (4 * Ac_1) / Math.PI;
+            var dc_2 = Math.sqrt(dc_1);
+            var de_1 = (4 * Ae_1) / Math.PI;
+            var de_2 = Math.sqrt(de_1);
+            var Lep_1 = (de_2 - dt_2) / 2;
+            var Lcp_1 = (dc_2 - dt_2) / 2;
+            var Lep_2 = Lep_1 / Math.tan(degreesToRadians(CTe_1));
+            var Lcp_2 = Lcp_1 / Math.tan(degreesToRadians(CTc_1));
+            var z_1 = At_1 * Ac_1;
+            var z_2 = Math.sqrt(z_1);
+            var z_3 = (At_1 + Ac_1 + z_2) * Lcp_2;
+            var Ve_1 = z_3 / 3;
+            var Vc_1 = Vr_1 - Ve_1;
+            var Lc_1 = Vc_1 / Ac_1;
+
+            var resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = "<h3>计算结果</h3>" +
+                "<p>实际比冲：" + Isps.toFixed(2) + " s</p>" +
+                "<p>总质量流量：" + Mc_1.toFixed(2) + " kg/s</p>" +
+                "<p>氧化剂质量流量：" + Moc_1.toFixed(2) + " kg/s</p>" +
+                "<p>燃料质量流量：" + Mfc_1.toFixed(2) + " kg/s</p>" +
+                "<p>燃烧室直径：" + (dc_2 * 1000).toFixed(2) + " mm</p>" +
+                "<p>燃烧室长度：" + (Lc_1 * 1000).toFixed(2) + " mm</p>" +
+                "<p>收敛段长度：" + (Lcp_2 * 1000).toFixed(2) + " mm</p>" +
+                "<p>扩张段长度：" + (Lep_2 * 1000).toFixed(2) + " mm</p>" +
+                "<p>出口直径：" + (de_2 * 1000).toFixed(2) + " mm</p>" +
+                "<p>喉径直径：" + (dt_2 * 1000).toFixed(2) + " mm</p>" +
+                "<p>收敛段容积：" + (Ve_1 * 10000).toFixed(2) + " L</p>" +
+                "<p>燃烧室容积：" + (Vc_1 * 10000).toFixed(2) + " L</p>" +
+                "<p>本程序由铼铱工业编写</p>" +
+                "<p>使用有任何问题反馈邮箱lseqy2024@outlook.com</p>";
+        }
+
+        // 将角度转换为弧度
+        function degreesToRadians(degrees) {
+            return degrees * Math.PI / 180;
+        }
+    </script>
+</body>
+</html>

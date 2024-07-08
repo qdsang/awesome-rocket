@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>气氧喷嘴计算</title>
+</head>
+<body>
+  <h2>气氧喷嘴计算</h2>
+  <form id="gasFlowForm">
+    <label for="inputPressure">入口压力MPa:</label>
+    <input type="number" id="inputPressure" step="any" required><br><br>
+    
+    <label for="outputPressure">出口压力MPa:</label>
+    <input type="number" id="outputPressure" step="any" required><br><br>
+    
+    <label for="massFlowRate">质量流量kg/s:</label>
+    <input type="number" id="massFlowRate" step="any" required><br><br>
+    
+    <label for="flowCoefficient">流阻系数:</label>
+    <input type="number" id="flowCoefficient" step="any" required><br><br>
+    
+    <label for="numberOfFlows">个数:</label>
+    <input type="number" id="numberOfFlows" step="any" required><br><br>
+    
+    <button type="button" onclick="calculate()">计算</button>
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    function calculate() {
+      var Pin_1 = parseFloat(document.getElementById('inputPressure').value);
+      var Pc_1 = parseFloat(document.getElementById('outputPressure').value);
+      var m_1 = parseFloat(document.getElementById('massFlowRate').value);
+      var mu_1 = parseFloat(document.getElementById('flowCoefficient').value);
+      var nf_1 = parseFloat(document.getElementById('numberOfFlows').value);
+      var K_1 = 1.4; // Assuming a constant specific heat ratio for air
+      
+      var mh_1 = m_1 / nf_1;
+      var Rin_1 = Pin_1 / 0.101;
+      var Rin_2 = Math.pow(Rin_1, 1/K_1);
+      var Rin_3 = Rin_2 * 1.43;
+      var O_1 = (2 * K_1) / (K_1 - 1);
+      var O_2 = (K_1 - 1) / K_1;
+      var O_3 = Pc_1 / Pin_1;
+      var O_4 = Math.pow(O_3, O_2);
+      var O_7 = 1 - O_4;
+      var O_5 = O_1 * 273.15 * 259.8 * O_7;
+      var O_6 = Math.sqrt(O_5);
+      var An_1 = mh_1 / (O_6 * Rin_3 * mu_1);
+      var do_1 = (4 * An_1) / Math.PI;
+      var do_2 = Math.sqrt(do_1);
+      
+      var resultDiv = document.getElementById('result');
+      resultDiv.innerHTML = "<p>出口速度: " + O_6.toFixed(2) + " m/s</p>" +
+                            "<p>单个流量: " + mh_1.toFixed(2) + " kg/s</p>" +
+                            "<p>单个面积: " + (An_1 * 1000000).toFixed(2) + " mm<sup>2</sup></p>" +
+                            "<p>单个直径: " + (do_2 * 1000).toFixed(2) + " mm</p>" +
+                            "<p>气体密度: " + Rin_3.toFixed(2) + " kg/m<sup>3</sup></p>"+
+                            "<p>本程序由铼铱工业编写</p>" +
+                            "<p>使用有任何问题反馈邮箱lseqy2024@outlook.com</p>";
+
+    }
+  </script>
+</body>
+</html>
